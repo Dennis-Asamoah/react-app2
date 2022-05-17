@@ -3,11 +3,37 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Header from './components/Header';
+import { Router,Routes, Route, BrowserRouter } from 'react-router-dom';
+import SignUp from './components/Register';
+import Login from './components/Login'
+import Component1 from './components/Component1';
+import Component2 from './components/Component2'
+import DenseTable from './components/Table'
+import Detail from './components/DetailItem';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/* <Header/> */}
+    <BrowserRouter>
+    <Routes>
+    <Route path="/" element={<App/>}>
+       <Route  path='register' element={<SignUp/>} >  
+          <Route path='component1' element={<Component1/>} />
+       </Route>
+       <Route  path='login' element={<Login/>} />
+       <Route path='component2' element={<Component2/>}>
+          <Route path=':number' element={<Component2/>}>one</Route>
+        </Route>
+       <Route path='table' element={<DenseTable/>}/>
+       <Route path='detail' element={<Detail/>}>
+             <Route path=':id' element={<Detail/>}/>
+       </Route>
+    </Route>  
+    
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
