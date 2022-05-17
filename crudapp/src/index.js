@@ -11,6 +11,8 @@ import Component1 from './components/Component1';
 import Component2 from './components/Component2'
 import DenseTable from './components/Table'
 import Detail from './components/DetailItem';
+import Update from './components/Update';
+import Delete from './components/Delete'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +32,12 @@ root.render(
        <Route path='detail' element={<Detail/>}>
              <Route path=':id' element={<Detail/>}/>
        </Route>
+       <Route path='update' element={<Update/>}>
+           <Route path=':id' elements={<Update/>}/>
+       </Route>
+       <Route path='delete' element={<Delete/>}>
+          <Route path=':id' element={<Delete/>} />
+        </Route>
     </Route>  
     
     </Routes>

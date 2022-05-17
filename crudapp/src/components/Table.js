@@ -10,6 +10,8 @@ import { Container } from '@mui/material';
 import {useEffect,useState} from 'react';
 import axiosInstance from './axios1';
 import {Link} from 'react-router-dom';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 // function createData(
 //   name,
@@ -82,7 +84,7 @@ export default function DenseTable() {
               </TableCell> 
               <TableCell align="right">{row.name}</TableCell>
               <TableCell align="right">{row.description}</TableCell>
-              <TableCell align="right">delete/update</TableCell>
+              <TableCell align="right"><Link to={'/delete/'+row.id} > <DeleteIcon/></Link><Link to={'/update/'+row.id}><EditIcon/></Link></TableCell>
               
             </TableRow>
           ))}

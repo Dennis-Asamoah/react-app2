@@ -1,6 +1,7 @@
 import {useParams} from 'react-router-dom'
 import axiosInstance from './axios1';
 import {useEffect,useState} from 'react';
+import Album from './Album';
 
 
 function Detail()
@@ -19,11 +20,18 @@ function fetchData()
     )
 }
 
+useEffect(fetchData,[])
+
 return (
 
-    <>
+      <>
+
+   <h1>{item.id}</h1>
+   <Album/>
       
-    </>
+      </>
+      
+    
 
 )    
 
